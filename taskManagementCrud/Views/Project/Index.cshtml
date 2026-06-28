@@ -1,0 +1,49 @@
+﻿@model List<taskManagementCrud.Models.Project>
+
+<h1>Project List</h1>
+
+<a asp-action="Create" class="btn btn-primary mb-3">
+    Create New Project
+</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Project Name</th>
+            <th>Description</th>
+            <th>User Count</th>
+            <th>Total Week</th>
+            <th>Department</th>
+            <th>Employee</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProjectName</td>
+                <td>@item.ProjectDescription</td>
+                <td>@item.ProjectUserCount</td>
+                <td>@item.ProjectTotalWeek</td>
+                <td>@item.Department?.DepartmentName</td>
+                <td>@item.Employee?.EmployeeName</td>
+
+                <td>
+                    <a asp-action="Edit"
+                       asp-route-id="@item.ProjectId"
+                       class="btn btn-success btn-sm">
+                        Edit
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@item.ProjectId"
+                       class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

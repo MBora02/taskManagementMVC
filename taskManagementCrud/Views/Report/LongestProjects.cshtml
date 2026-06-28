@@ -1,0 +1,37 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "En Uzun Süren Projeler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a asp-controller="Report"
+   asp-action="Index"
+   class="btn btn-primary mb-3">
+    ← Raporlara Dön
+</a>
+
+<h2>En Uzun Süren Projeler</h2>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Proje Adı</th>
+            <th>Toplam Süre (Hafta)</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProjectName</td>
+                <td>@item.ProjectTotalWeek</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

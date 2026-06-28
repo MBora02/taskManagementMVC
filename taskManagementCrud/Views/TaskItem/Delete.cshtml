@@ -1,0 +1,25 @@
+﻿@model taskManagementCrud.Models.TaskItem
+
+<h2>Delete Task</h2>
+
+<h4>Bu görevi silmek istediğinize emin misiniz?</h4>
+
+<hr />
+
+<div>
+    <p><strong>Task:</strong> @Model.TaskName</p>
+</div>
+
+<form asp-action="Delete" method="post">
+
+    <input type="hidden" asp-for="TaskId" />
+
+    <button type="submit" class="btn btn-danger">
+        Delete
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Cancel
+    </a>
+
+</form>

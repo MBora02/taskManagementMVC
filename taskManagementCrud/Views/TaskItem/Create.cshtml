@@ -1,0 +1,40 @@
+﻿@model taskManagementCrud.Models.TaskItem
+
+<h1>Create Task</h1>
+
+<form asp-action="Create" method="post">
+
+    <div class="form-group">
+        <label asp-for="TaskName"></label>
+        <input asp-for="TaskName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TaskDescription"></label>
+        <input asp-for="TaskDescription" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EmployeeId"></label>
+        <select asp-for="EmployeeId"
+                asp-items="ViewBag.Employees"
+                class="form-control">
+            <option value="">Select Employee</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProjectId"></label>
+        <select asp-for="ProjectId"
+                asp-items="ViewBag.Projects"
+                class="form-control">
+            <option value="">Select Project</option>
+        </select>
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">
+        Save
+    </button>
+</form>

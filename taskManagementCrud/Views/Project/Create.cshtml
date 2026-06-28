@@ -1,0 +1,51 @@
+﻿@model taskManagementCrud.Models.Project
+
+<h1>Create Project</h1>
+
+<form asp-action="Create" method="post">
+
+    <div class="form-group">
+        <label asp-for="ProjectName"></label>
+        <input asp-for="ProjectName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProjectDescription"></label>
+        <input asp-for="ProjectDescription" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProjectUserCount"></label>
+        <input asp-for="ProjectUserCount" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProjectTotalWeek"></label>
+        <input asp-for="ProjectTotalWeek" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DepartmentId"></label>
+        <select asp-for="DepartmentId"
+                asp-items="ViewBag.Departments"
+                class="form-control">
+            <option value="0">Select Department</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EmployeeId"></label>
+        <select asp-for="EmployeeId"
+                asp-items="ViewBag.Employees"
+                class="form-control">
+            <option value="0">Select Employee</option>
+        </select>
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">
+        Save
+    </button>
+
+</form>

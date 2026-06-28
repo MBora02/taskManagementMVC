@@ -1,0 +1,19 @@
+﻿@model taskManagementCrud.Models.Employee
+
+<h2>Delete Employee</h2>
+
+<p>Bu çalışanı silmek istediğinize emin misiniz?</p>
+
+<p>@Model.EmployeeName @Model.EmployeeSurname</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="EmployeId" />
+
+    <button type="submit" class="btn btn-danger">
+        Delete
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Cancel
+    </a>
+</form>

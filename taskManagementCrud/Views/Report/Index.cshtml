@@ -1,0 +1,105 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+
+    <h2 class="mb-4">📊 Raporlar</h2>
+
+    <div class="row g-3">
+
+        <div class="col-md-4">
+            <a asp-controller="Report" asp-action="DepartmentProjectCount"
+               class="btn btn-success w-100 p-3">
+                🏢 Departmanlara Göre Proje Sayıları
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-controller="Report" asp-action="EmployeeTaskCount"
+               class="btn btn-warning w-100 p-3">
+                👨‍💼 En Fazla Göreve Sahip Çalışanlar
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-controller="Report" asp-action="EmployeeDepartments"
+               class="btn btn-info w-100 p-3">
+                👥 Çalışanların Departmanları
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-controller="Report" asp-action="LongestProjects"
+               class="btn btn-danger w-100 p-3">
+                ⏳ En Uzun Süren Projeler
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-controller="Report" asp-action="ProjectEmployees"
+               class="btn btn-dark w-100 p-3">
+                📁 Proje ve Sorumlu Çalışanlar
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-controller="Report" asp-action="ProjectTaskCount"
+               class="btn btn-secondary w-100 p-3">
+                📝 Projelere Göre Görev Sayıları
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-controller="Report" asp-action="TaskEmployees"
+               class="btn btn-primary w-100 p-3">
+                📌 Görev ve Atanan Çalışanlar
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-controller="Report" asp-action="DepartmentProjects"
+               class="btn btn-success w-100 p-3">
+                🏢 Departmanlara Ait Projeler
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-controller="Report" asp-action="EmployeeAgeRanking"
+               class="btn btn-warning w-100 p-3">
+                📊 Yaşa Göre Çalışan Sıralaması
+            </a>
+        </div>
+
+        <!-- 🔥 VIEWMODEL RAPORLARI (EKLENEBİLİR) -->
+
+        <div class="col-md-4">
+            <a asp-controller="Report" asp-action="EmployeeDepartmentReport"
+               class="btn btn-primary w-100 p-3">
+                👨‍💼 + 🏢 Employee - Department (JOIN)
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-controller="Report" asp-action="EmployeeProjectReport"
+               class="btn btn-info w-100 p-3">
+                👨‍💼 + 📁 Employee - Project (JOIN)
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-controller="Report" asp-action="ProjectTaskReport"
+               class="btn btn-dark w-100 p-3">
+                📁 + 📝 + 👨‍💼 Project - Task (3 JOIN)
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-controller="Report" asp-action="DepartmentEmployeeCount"
+               class="btn btn-success w-100 p-3">
+                📊 Department Employee Count (GROUP BY)
+            </a>
+        </div>
+
+    </div>
+</div>

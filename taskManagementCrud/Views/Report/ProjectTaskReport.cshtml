@@ -1,0 +1,49 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Proje - Görev Raporu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a asp-controller="Report"
+   asp-action="Index"
+   class="btn btn-primary mb-3">
+    ← Raporlara Dön
+</a>
+
+<h2>Proje - Görev Raporu</h2>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Sıra</th>
+            <th>Proje</th>
+            <th>Görev</th>
+            <th>Açıklama</th>
+            <th>Çalışan</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @{
+            int sıra = 1;
+        }
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@sıra</td>
+                <td>@item.ProjectName</td>
+                <td>@item.TaskName</td>
+                <td>@item.TaskDescription</td>
+                <td>@item.EmployeeName</td>
+            </tr>
+
+            sıra++;
+        }
+
+    </tbody>
+
+</table>

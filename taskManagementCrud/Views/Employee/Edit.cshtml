@@ -1,0 +1,79 @@
+﻿@model taskManagementCrud.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit Employee";
+}
+
+<h1>Edit Employee</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="Edit" method="post">
+
+            <!-- Hidden ID -->
+            <input type="hidden" asp-for="EmployeId" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Name -->
+            <div class="form-group">
+                <label asp-for="EmployeeName" class="control-label"></label>
+                <input asp-for="EmployeeName" class="form-control" />
+                <span asp-validation-for="EmployeeName" class="text-danger"></span>
+            </div>
+
+            <!-- Surname -->
+            <div class="form-group">
+                <label asp-for="EmployeeSurname" class="control-label"></label>
+                <input asp-for="EmployeeSurname" class="form-control" />
+                <span asp-validation-for="EmployeeSurname" class="text-danger"></span>
+            </div>
+
+            <!-- Age -->
+            <div class="form-group">
+                <label asp-for="EmployeeAge" class="control-label"></label>
+                <input asp-for="EmployeeAge" class="form-control" />
+                <span asp-validation-for="EmployeeAge" class="text-danger"></span>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group">
+                <label asp-for="EmployeeGender" class="control-label"></label>
+                <input asp-for="EmployeeGender" class="form-control" />
+                <span asp-validation-for="EmployeeGender" class="text-danger"></span>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+                <label asp-for="EmployeePhone" class="control-label"></label>
+                <input asp-for="EmployeePhone" class="form-control" />
+                <span asp-validation-for="EmployeePhone" class="text-danger"></span>
+            </div>
+
+            <!-- Department Dropdown -->
+            <div class="form-group">
+                <label asp-for="DepartmentId" class="control-label"></label>
+                <select asp-for="DepartmentId"
+                        class="form-control"
+                        asp-items="ViewBag.Departments">
+                </select>
+                <span asp-validation-for="DepartmentId" class="text-danger"></span>
+            </div>
+
+            <br />
+
+            <button type="submit" class="btn btn-warning">
+                Update
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+<br />
+
+<a asp-action="Index">Back to List</a>
