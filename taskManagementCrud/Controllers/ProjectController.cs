@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using taskManagementCrud.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace taskManagementCrud.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProjectController : Controller
     {
         private readonly AppDbContext _context;

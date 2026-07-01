@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using taskManagementCrud.Models;
 using taskManagementCrud.Models.viewModel;
 
+using Microsoft.AspNetCore.Authorization;
+
 namespace taskManagementCrud.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ReportController : Controller
     {
         private readonly AppDbContext _context;

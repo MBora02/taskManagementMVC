@@ -1,4 +1,4 @@
-﻿@{
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -30,7 +30,15 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="@Url.ActionLink("Index", "Home")">Anasayfa</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="@Url.ActionLink("Index", "Department")">Admin sayfası</a></li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="@Url.ActionLink("Index", "Department")">Admin sayfası</a></li>
+                    }
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <li class="nav-item"><span class="nav-link px-lg-3 py-3 py-lg-4" style="color: rgba(255,255,255,0.8);">Merhaba, @User.Identity.Name</span></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="@Url.ActionLink("Logout", "Account")">Çıkış Yap</a></li>
+                    }
                 </ul>
             </div>
         </div>

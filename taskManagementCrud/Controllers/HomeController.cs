@@ -2,8 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using taskManagementCrud.Models;
 
+using Microsoft.AspNetCore.Authorization;
+
 namespace taskManagementCrud.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()

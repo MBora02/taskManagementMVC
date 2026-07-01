@@ -1,0 +1,45 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Erişim Engellendi - Görev Yönetim Sistemi</title>
+    <!-- Custom fonts for this template-->
+    <link href="~/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="~/admin/css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-warning" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
+    <div class="container text-center">
+        <!-- 403 Error Text -->
+        <div class="error mx-auto" data-text="403" style="font-size: 7rem; font-weight: 900; line-height: 1; color: #5a5c69;">403</div>
+        <p class="lead text-gray-800 mb-5 font-weight-bold" style="font-size: 1.5rem;">Erişim Yetkiniz Yok</p>
+        <p class="text-gray-500 mb-0">Bu sayfayı görüntülemek için "Yönetici (Admin)" yetkisine sahip olmalısınız.</p>
+        <p class="text-gray-500 mb-4">Mevcut hesabınız bu işleme yetkili değil.</p>
+        
+        <div class="mt-4">
+            <a href="@Url.Action("Index", "Home")" class="btn btn-primary btn-icon-split shadow mr-3">
+                <span class="icon text-white-50">
+                    <i class="fas fa-home"></i>
+                </span>
+                <span class="text font-weight-bold">Ana Sayfaya Dön</span>
+            </a>
+            <a href="@Url.Action("Logout", "Account")" class="btn btn-danger btn-icon-split shadow">
+                <span class="icon text-white-50">
+                    <i class="fas fa-sign-out-alt"></i>
+                </span>
+                <span class="text font-weight-bold">Farklı Hesapla Giriş Yap</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/admin/vendor/jquery/jquery.min.js"></script>
+    <script src="~/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

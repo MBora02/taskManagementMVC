@@ -1,6 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using taskManagementCrud.Models;
+using QuestPDF.Infrastructure;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using taskManagementCrud;
 
+QuestPDF.Settings.License = LicenseType.Community;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,7 +12,44 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.LogoutPath = "/Account/Logout";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+    });
+
 var app = builder.Build();
+
+// Seed default users if database has none
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    if (!context.Users.Any())
+    {
+        context.Users.AddRange(
+            new User
+            {
+                Email = "admin@task.com",
+                PasswordHash = PasswordHelper.HashPassword("admin"),
+                Name = "System",
+                Surname = "Admin",
+                Role = "Admin"
+            },
+            new User
+            {
+                Email = "user@task.com",
+                PasswordHash = PasswordHelper.HashPassword("user"),
+                Name = "Standard",
+                Surname = "User",
+                Role = "User"
+            }
+        );
+        context.SaveChanges();
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -21,6 +62,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
