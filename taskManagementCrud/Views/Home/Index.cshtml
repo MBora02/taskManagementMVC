@@ -229,7 +229,16 @@
                                 else
                                 {
                                     <tr>
-                                        <td colspan="5" class="text-center py-4 text-muted">Sistemde henüz kayıtlı görev bulunmamaktadır.</td>
+                                        <td colspan="5" class="text-center py-4 text-muted">
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                                <span>Sistemde henüz kayıtlı görev bulunmamaktadır.</span>
+                                            }
+                                            else
+                                            {
+                                                <span>Size atanmış herhangi bir görev bulunmamaktadır.</span>
+                                            }
+                                        </td>
                                     </tr>
                                 }
                             </tbody>
@@ -307,7 +316,16 @@
                                 else
                                 {
                                     <tr>
-                                        <td colspan="7" class="text-center py-4 text-muted">Sistemde henüz kayıtlı proje bulunmamaktadır.</td>
+                                        <td colspan="7" class="text-center py-4 text-muted">
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                                <span>Sistemde henüz kayıtlı proje bulunmamaktadır.</span>
+                                            }
+                                            else
+                                            {
+                                                <span>Size atanmış veya yöneticisi olduğunuz herhangi bir proje bulunmamaktadır.</span>
+                                            }
+                                        </td>
                                     </tr>
                                 }
                             </tbody>

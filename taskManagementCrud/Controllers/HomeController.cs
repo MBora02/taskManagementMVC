@@ -19,29 +19,61 @@ namespace taskManagementCrud.Controllers
 
         public IActionResult Index()
         {
+            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            var isUserAdmin = User.IsInRole("Admin");
+
             var viewModel = new HomeDashboardVM
             {
-                TotalTasks = _context.TaskItems.Count(),
-                TotalProjects = _context.Projects.Count(),
                 TotalEmployees = _context.Employees.Count(),
                 TotalDepartments = _context.Departments.Count(),
-                
-                Tasks = _context.TaskItems
-                    .Include(t => t.Employee)
-                    .Include(t => t.Project)
-                    .ToList(),
-                
-                Projects = _context.Projects
-                    .Include(p => p.Department)
-                    .Include(p => p.Employee)
-                    .ToList(),
-                
-                Employees = _context.Employees
-                    .Include(e => e.Department)
-                    .ToList(),
-                
+                Employees = _context.Employees.Include(e => e.Department).ToList(),
                 Departments = _context.Departments.ToList()
             };
+
+            if (isUserAdmin)
+            {
+                viewModel.TotalTasks = _context.TaskItems.Count();
+                viewModel.TotalProjects = _context.Projects.Count();
+                viewModel.Tasks = _context.TaskItems
+                    .Include(t => t.Employee)
+                    .Include(t => t.Project)
+                    .ToList();
+                viewModel.Projects = _context.Projects
+                    .Include(p => p.Department)
+                    .Include(p => p.Employee)
+                    .ToList();
+            }
+            else
+            {
+                if (int.TryParse(userIdClaim, out int userId))
+                {
+                    var currentUser = _context.Users.Find(userId);
+                    if (currentUser != null)
+                    {
+                        var employee = _context.Employees.FirstOrDefault(e => 
+                            e.EmployeeName == currentUser.Name && 
+                            e.EmployeeSurname == currentUser.Surname);
+
+                        if (employee != null)
+                        {
+                            viewModel.Tasks = _context.TaskItems
+                                .Include(t => t.Employee)
+                                .Include(t => t.Project)
+                                .Where(t => t.EmployeeId == employee.EmployeId)
+                                .ToList();
+                            
+                            viewModel.Projects = _context.Projects
+                                .Include(p => p.Department)
+                                .Include(p => p.Employee)
+                                .Where(p => p.EmployeeId == employee.EmployeId)
+                                .ToList();
+                        }
+                    }
+                }
+
+                viewModel.TotalTasks = viewModel.Tasks.Count;
+                viewModel.TotalProjects = viewModel.Projects.Count;
+            }
 
             return View(viewModel);
         }
