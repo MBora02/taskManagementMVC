@@ -1,4 +1,4 @@
-# Task Management MVC
+<img width="1912" height="861" alt="image" src="https://github.com/user-attachments/assets/66904cf4-b118-4067-8282-699c9940c96f" /># Task Management MVC
 
 ![.NET Version](https://img.shields.io/badge/.NET-10.0-blue)
 ![Database](https://img.shields.io/badge/Database-SQL%20Server-red)
@@ -35,20 +35,33 @@ A relational database task management system designed to coordinate projects, em
 ### Interface Screenshot Placeholders
 
 #### User Authentication
-![Login Interface](https://github-production-user-asset-6213.png)
-*Instruction: Upload a screenshot of the login form located at `/Account/Login` here.*
+<img width="1912" height="861" alt="image" src="https://github.com/user-attachments/assets/c7e63788-b76e-4865-af76-a720078c8d26" />
+
+#### User MainPage
+<img width="1902" height="800" alt="image" src="https://github.com/user-attachments/assets/49e50ef1-1480-4042-8aa2-139d1a59150d" />
 
 #### System Dashboard
 ![Admin Dashboard](https://github-production-user-asset-6214.png)
 *Instruction: Upload a screenshot of the main admin dashboard showing counts and activity tables here.*
 
 #### Department Management Grid
-![Departments List](https://github-production-user-asset-6215.png)
-*Instruction: Upload a screenshot of the department index table showing the PDF/Excel download controls here.*
+<img width="1913" height="855" alt="image" src="https://github.com/user-attachments/assets/4af293d2-8493-47f8-a9d4-b30cb353cefc" />
 
-#### Analytical Reports Portal
-![Reports Overview](https://github-production-user-asset-6216.png)
-*Instruction: Upload a screenshot of the reports page displaying current query datasets here.*
+#### Employee Management Grid
+<img width="1910" height="853" alt="image" src="https://github.com/user-attachments/assets/6d20a3e8-642c-4eab-8dea-a5ed5d6b1189" />
+
+#### Project Management Grid
+<img width="1911" height="852" alt="image" src="https://github.com/user-attachments/assets/2353efda-fd52-404b-91fe-11d076382aca" />
+
+#### Task Management Grid
+<img width="1913" height="847" alt="image" src="https://github.com/user-attachments/assets/417e4df1-c9d3-42ce-a473-ceff89c2b6b8" />
+
+
+#### Analytical Reports Page
+<img width="1910" height="841" alt="image" src="https://github.com/user-attachments/assets/16b8f52e-7675-43dc-865b-45d82c00d64e" />
+
+#### Example Report Page
+<img width="1913" height="856" alt="image" src="https://github.com/user-attachments/assets/bc2ec832-2d30-4ef8-9d63-91b179671cc9" />
 
 ---
 
