@@ -1,4 +1,4 @@
-<img width="1912" height="861" alt="image" src="https://github.com/user-attachments/assets/66904cf4-b118-4067-8282-699c9940c96f" /># Task Management MVC
+# Task Management MVC
 
 ![.NET Version](https://img.shields.io/badge/.NET-10.0-blue)
 ![Database](https://img.shields.io/badge/Database-SQL%20Server-red)
